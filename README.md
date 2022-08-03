@@ -6,6 +6,8 @@
 
 Tools for [osu!](https://osu.ppy.sh).
 
+> Note that this fork has been modified for development with respect to osu!droid.
+
 # Requirements
 
 - A desktop platform with the [.NET 6.0 SDK](https://dotnet.microsoft.com/download) installed.
