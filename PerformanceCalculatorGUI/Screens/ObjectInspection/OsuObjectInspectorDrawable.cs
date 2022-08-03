@@ -58,9 +58,10 @@ namespace PerformanceCalculatorGUI.Screens.ObjectInspection
             {
                 panel.AddParagraph($"Strain Time: {entry.DifficultyHitObject.StrainTime:N3}");
                 panel.AddParagraph($"Aim Difficulty: {AimEvaluator.EvaluateDifficultyOf(entry.DifficultyHitObject, true):N3}");
-                panel.AddParagraph($"Speed Difficulty: {SpeedEvaluator.EvaluateDifficultyOf(entry.DifficultyHitObject, 20):N3}"); // OD10, not possible to get difficulty stats from here?
+                panel.AddParagraph($"Tap Difficulty: {TapEvaluator.EvaluateDifficultyOf(entry.DifficultyHitObject, 20):N3}"); // OD10, not possible to get difficulty stats from here?
                 panel.AddParagraph($"Rhythm Difficulty: {RhythmEvaluator.EvaluateDifficultyOf(entry.DifficultyHitObject, 20):N3}");
                 panel.AddParagraph($"Flashlight Difficulty: {FlashlightEvaluator.EvaluateDifficultyOf(entry.DifficultyHitObject, false):N3}");
+                panel.AddParagraph($"Visual Difficulty: {VisualEvaluator.EvaluateDifficultyOf(entry.DifficultyHitObject, false):N3}");
 
                 if (entry.DifficultyHitObject.Angle is not null)
                     panel.AddParagraph($"Angle: {MathUtils.RadiansToDegrees(entry.DifficultyHitObject.Angle.Value):N3}");
