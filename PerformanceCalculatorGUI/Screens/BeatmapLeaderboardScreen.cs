@@ -329,7 +329,7 @@ namespace PerformanceCalculatorGUI.Screens
                 scoreProcessor.Combo.Value = combo;
                 scoreProcessor.PopulateScore(scoreInfo);
 
-                var score = scoreProcessor.ComputeFinalLegacyScore(ScoringMode.Standardised, scoreInfo, difficultyAttributes.MaxCombo);
+                var score = scoreProcessor.ComputeScore(ScoringMode.Standardised, scoreInfo);
 
                 scores.Add(new SoloScoreInfo
                 {
