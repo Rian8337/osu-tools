@@ -196,7 +196,7 @@ namespace PerformanceCalculatorGUI.Screens
                 Schedule(() =>
                 {
                     if (beatmapPanel != null)
-                        beatmapPanelContainer.Remove(beatmapPanel);
+                        beatmapPanelContainer.Remove(beatmapPanel, true);
 
                     beatmapPanelContainer.Add(beatmapPanel = new BeatmapCard(working));
 
@@ -237,7 +237,7 @@ namespace PerformanceCalculatorGUI.Screens
                     plays.Add(score);
                 }
 
-                var sortedScores = await scoreManager.OrderByTotalScoreAsync(plays.Select(x => x.ToScoreInfo(rulesets, working.BeatmapInfo)).ToArray(), token);
+                var sortedScores = scoreManager.OrderByTotalScore(plays.Select(x => x.ToScoreInfo(rulesets, working.BeatmapInfo))).ToList();
 
                 Schedule(() =>
                 {
