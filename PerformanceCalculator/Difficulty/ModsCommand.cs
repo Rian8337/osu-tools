@@ -48,6 +48,7 @@ namespace PerformanceCalculator.Difficulty
                 mod.UserPlayable,
                 mod.ValidForMultiplayer,
                 mod.ValidForMultiplayerAsFreeMod,
+                mod.AlwaysValidForSubmission,
             });
 
             IEnumerable<string> getAllImplementations(Type[] incompatibleTypes)
@@ -63,7 +64,7 @@ namespace PerformanceCalculator.Difficulty
             {
                 var sourceProperties = mod.GetSettingsSourceProperties();
 
-                foreach (var (_, propertyInfo) in sourceProperties)
+                foreach (var (settingsSource, propertyInfo) in sourceProperties)
                 {
                     var bindable = propertyInfo.GetValue(mod);
 
@@ -75,7 +76,9 @@ namespace PerformanceCalculator.Difficulty
                     yield return new
                     {
                         Name = propertyInfo.Name.Underscore(),
-                        Type = getJsonType(netType)
+                        Type = getJsonType(netType),
+                        Label = settingsSource.Label.ToString(),
+                        Description = settingsSource.Description.ToString(),
                     };
                 }
             }

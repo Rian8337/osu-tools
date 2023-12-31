@@ -35,7 +35,7 @@ namespace PerformanceCalculatorGUI.Screens.ObjectInspection
             => dependencies = new DependencyContainer(base.CreateChildDependencies(parent));
 
         [Cached]
-        private BindableBeatDivisor beatDivisor = new();
+        private BindableBeatDivisor beatDivisor = new BindableBeatDivisor();
 
         [Resolved]
         private Bindable<WorkingBeatmap> beatmap { get; set; }
@@ -226,7 +226,6 @@ namespace PerformanceCalculatorGUI.Screens.ObjectInspection
 
         protected override void PopIn()
         {
-            base.PopIn();
             this.FadeIn();
         }
 
